@@ -10,10 +10,10 @@ module.exports = function getSeason(date) {
       } else {
       month = date.getMonth();
       // console.log(month);
-      if (month == 1 || month == 2 || month == 0) {season = 'winter'}
-        else if (month >= 3 && month <= 5) {season = 'spring'}
-          else if (month >= 6 && month <= 8) {season = 'summer'}
-            else if (month >= 9 && month <= 11) {season = 'autumn'};
+      if (month >= 11 || month <= 1) {season = 'winter'}
+        else if (month <= 4) {season = 'spring'}
+          else if (month <= 7) {season = 'summer'}
+            else season = 'autumn';
               // else season = 'error';
       // throw new CustomError('Not implemented');
       // remove line with error and write your code here
