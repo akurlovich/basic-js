@@ -7,15 +7,28 @@ module.exports = function repeater(str, options) {
       additionRepeatTimes = options.additionRepeatTimes,
       additionSeparator = options.additionSeparator;
   // str.toString();
-  let newStr = [];
-  if (typeof separator == 'undefined') {separator = '+'}
-  if (typeof addition == 'undefined') {addition = ''}
-  if (typeof repeatTime == 'undefined') {repeatTime = 1}
-  while(newStr.length < (repeatTime * 3)) {
+  let newStr = [],
+      i = 1,
+      j = 1;
+  if (typeof separator == 'undefined') {separator = '+'};
+  if (typeof addition == 'undefined') {addition = ''};
+  if (typeof repeatTime == 'undefined') {repeatTime = 1};
+  if (typeof additionRepeatTimes == 'undefined') {additionRepeatTimes = 1};
+  if (typeof additionSeparator == 'undefined') {additionSeparator = ''};
+  // while(newStr.length < (repeatTime * 3)) {
+  while (i <= repeatTime) {
     newStr.push(str);
     // newStr.push(addition + separator);
+  while (j <= additionRepeatTimes) {
     newStr.push(addition);
+    if ((additionRepeatTimes >= 2) && (j < additionRepeatTimes)) {
+      newStr.push(additionSeparator)
+    };
+    j++;
+  }
     newStr.push(separator);
+    i++;
+    j = 1;
   }
   // if (addition == '') {
     newStr.pop();
