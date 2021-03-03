@@ -1,23 +1,17 @@
-// const CustomError = require("../extensions/custom-error");
+const CustomError = require("../extensions/custom-error");
 
-// module.exports = 
-function calculateHanoi(disksNumber, turnsSpeed) {
-  function stepsToSolveHanoiT(height, srcP, desP, bufferP) {
-    if (height >= 1) {
-  
-      // Move a tower of height-1 to the buffer peg, using the destination peg.
-      stepsToSolveHanoiT(height - 1, srcP, bufferP, desP);
-  
-      // Move the remaining disk to the destination peg.
-      console.log('Move disk from Tower ', srcP, ' to Tower ', desP);
-  
-      // Move the tower of `height-1` from the `buffer peg` to the `destination peg` using the `source peg`.        
-      stepsToSolveHanoiT(height - 1, bufferP, desP, srcP);
-    }
-    
-    return;
-  }
-  stepsToSolveHanoiT(3, "A", "C", "B");
+module.exports = function calculateHanoi(disksNumber, turnsSpeed) {
+  let turns = (2 ** disksNumber) - 1,
+      seconds = Math.floor( turns / (turnsSpeed/60/60));
+
+  // console.log({disks, speed});
+  return {turns, seconds};
   // throw new CustomError('Not implemented');
   // remove line with error and write your code here
 };
+
+// calculateHanoi(5, 4074);
+
+// let i = (2 ** 9) - 1,
+//     j = Math.floor( i / (4308/60/60));
+// console.log(i, j)
