@@ -51,7 +51,7 @@ class VigenereCipheringMachine {
 
     for (let i = 0, n = 0; i < msgLength; i++, n++) {
       let messageChar = messageUCDried[i];
-      if (!alphabet.indexOf(messageChar)) {
+      if (!~alphabet.indexOf(messageChar)) {
         res.push(messageChar);
         n--;
         continue;
@@ -81,7 +81,7 @@ class VigenereCipheringMachine {
         let ecryptedMessageChar = ecryptedMessageUCDreid[i],
             rowIndex = keyUCDried.charCodeAt(n % keyLength) - START_POSITION_CHARCODE,
             row = tabulaRecta[rowIndex];
-        if (!alphabet.indexOf(ecryptedMessageChar)) {
+        if (!~alphabet.indexOf(ecryptedMessageChar)) {
           res.push(ecryptedMessageChar);
           n--;
           continue;
