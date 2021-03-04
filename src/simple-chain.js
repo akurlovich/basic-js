@@ -1,12 +1,12 @@
 const CustomError = require("../extensions/custom-error");
 
 const chainMaker = {
-  currChain = [],
+  currChain: [],
   getLength() {
     return this.currChain.length;
   },
   addLink(value) {
-    this.currChain.push(`(${value})`);
+    this.currChain.push(`( ${value} )`);
     return this;
   },
   removeLink(position) {
@@ -29,14 +29,14 @@ const chainMaker = {
   finishChain() {
     let chain = this._getChain();
     this._deleteChain();
-    return this;
-  }
+    return chain;
+  },
   _deleteChain() {
     this.currChain.length = 0;
-  }
+  },
   _checkIntegerNumber(num) {
     return typeof num === 'number' && num ^ 0 === num;
-  }
+  },
   _getChain() {
     return this.currChain.join('~~');
   }
