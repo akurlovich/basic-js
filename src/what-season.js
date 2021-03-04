@@ -3,7 +3,7 @@ const CustomError = require("../extensions/custom-error");
 module.exports = function getSeason(date = 'no-value') {
   if (date === 'no-value') return 'Unable to determine the time of year!';
   if (date instanceof Date) {
-    // if (Object.prototype.toString.call(data) !== '[object Data]') throw new Error('Caught fake data!');
+    if (Object.prototype.toString.call(date) !== `[object Date]`) throw new Error('Caught fake date!');
     
     let season = '',
         month = date.getMonth();
