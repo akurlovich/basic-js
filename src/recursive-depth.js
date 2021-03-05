@@ -1,15 +1,28 @@
 const CustomError = require("../extensions/custom-error");
 
+let hasArray = (arr) => arr.some(item => Array.isArray(item));
+
 module.exports = class DepthCalculator {
   calculateDepth(arr) {
-    let array = arr;
-    // return 
-    function test(array) {
-      return 1 + (array instanceof Array ? array.reduce(function(max, item) {
-        return Math.max(max, test(item));
-      }, 0) : -1);
+    let dep = 1;
+    if (hasArray(arr)) {
+      let finArr = arr.reduce((acc, cur) => acc.concat(cur), []);
+      return dep + this.calculateDepth(finArr);
     }
-    return test(array);
+    return dep;
+
+
+    // let array = arr;
+    // // return 
+    // function test(array) {
+    //   return 1 + (array instanceof Array ? array.reduce(function(max, item) {
+    //     return Math.max(max, test(item));
+    //   }, 0) : -1);
+    // }
+    // return test(array);
+
+
+
     // console.log(test([1,[1]]))
     // if (Array.isArray(array)) return 1 + Math.max(...array.map(t => calculateDepth(t)))
     //   else return 0
