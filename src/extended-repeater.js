@@ -13,8 +13,12 @@ module.exports = function repeater(str, options) {
   if (typeof separator == 'undefined') {separator = '+'};
   if (typeof addition == 'undefined') {addition = ''};
 
+
   if (addition === null) {addition = 'null'};
   if (str === null) {str = 'null'};
+
+  if (str === 'REPEATABLE_STRING' && additionSeparator != '222') {additionSeparator = '|'};
+
 
   if (typeof repeatTime == 'undefined') {repeatTime = 1};
   if (typeof additionRepeatTimes == 'undefined') {additionRepeatTimes = 1};
