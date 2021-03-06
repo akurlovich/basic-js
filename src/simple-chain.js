@@ -13,7 +13,7 @@ const chainMaker = {
     if (this._checkIntegerNumber(position)) {
       if (position < 1 || position > this.getLength()) {
         this._deleteChain();
-        throw new CustomError('Not implemented');
+        throw new Error('Not implemented');
       }
       let index = position - 1;
       this.currChain.splice(index, 1);

@@ -39,7 +39,7 @@ class VigenereCipheringMachine {
   }
   
   encrypt(message, key) {
-    if (message === undefined || key === undefined) throw new CustomError('Not implemented');
+    if (message === undefined || key === undefined) throw new Error('Not implemented');
     
     let keyUC = key.toUpperCase(),
         keyUCDried = keyUC.replace(/\s/g, ''),
