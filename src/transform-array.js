@@ -2,7 +2,8 @@ const CustomError = require("../extensions/custom-error");
 
 module.exports = function transform(array) {
   if (!(array instanceof Array)) {
-    throw new CustomError('Not implemented')};
+    // throw new CustomError('Not implemented')};
+    throw new Error('Not implemented')};
   let dn = '--discard-next',
       dp = '--discard-prev',
       ddn = '--double-next',
@@ -12,7 +13,7 @@ module.exports = function transform(array) {
     switch (array[i]) {
       case dn:
         i++;
-        newArr.push(array[i + 1]);
+        // newArr.push(array[i + 1]);
         break;
       case ddn:
         newArr.push(array[i + 1]);
